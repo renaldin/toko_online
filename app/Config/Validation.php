@@ -85,4 +85,37 @@ class Validation
 			'required'	=> '{field} harus diisi',
 		],
 	];
+
+	public $barang = [
+		'nama'		=> [
+			'rules'	=> 'required|min_length[2]',
+		],
+		'harga'		=> [
+			'rules'	=> 'required|is_natural',
+		],
+		'stok'		=> [
+			'rules'	=> 'required|is_natural',
+		],
+		'gambar'	=> [
+			'rules'	=> 'uploaded[gambar]',
+		],
+	];
+
+	public $barang_errors = [
+		'nama' => [
+			'required'	=> '{field} harus diisi',
+			'min_length'=> '{field} minimum 2 karakter',
+		],
+		'harga'=> [
+			'required'	=> '{field} harus diisi',
+			'is_natural'=> '{field} tidak boleh negatif',
+		],
+		'stok'	=> [
+			'required'	=> '{field} harus diisi',
+			'is_natural'=> '{field} tidak boleh negatif',
+		],
+		'gambar'	=> [
+			'uploaded' => '{field} haurs diisi',
+		]
+	];
 }
