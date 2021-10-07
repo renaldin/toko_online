@@ -76,6 +76,27 @@ class Validation
 		]
 	];
 
+	public $transaksi = [
+		'id_barang'	=> [
+			'rules'	=> 'required',
+		],
+		'id_pembeli'=> [
+			'rules'	=> 'required',
+		],
+		'jumlah' => [
+			'rules'	=> 'required',
+		],
+		'total_harga' => [
+			'rules'	=> 'required',
+		],
+		'alamat' => [
+			'rules'	=> 'required',
+		],
+		'ongkir' => [
+			'rules'	=> 'required',
+		],
+	];
+
 	public $login_errors = [
 		'username'	=> [
 			'required'	=> '{field} harus diisi!',
@@ -116,6 +137,33 @@ class Validation
 		],
 		'gambar'	=> [
 			'uploaded' => '{field} haurs diisi',
+		]
+	];
+
+	public $barangupdate = [
+		'nama'		=> [
+			'rules'	=> 'required|min_length[2]',
+		],
+		'harga'		=> [
+			'rules'	=> 'required|is_natural',
+		],
+		'stok'		=> [
+			'rules'	=> 'required|is_natural',
+		]
+	];
+
+	public $barangupdate_errors = [
+		'nama' => [
+			'required'	=> '{field} harus diisi',
+			'min_length'=> '{field} minimum 2 karakter',
+		],
+		'harga'=> [
+			'required'	=> '{field} harus diisi',
+			'is_natural'=> '{field} tidak boleh negatif',
+		],
+		'stok'	=> [
+			'required'	=> '{field} harus diisi',
+			'is_natural'=> '{field} tidak boleh negatif',
 		]
 	];
 }

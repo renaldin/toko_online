@@ -13,6 +13,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?= site_url('home/index'); ?>">Home <span class="sr-only">(current)</span></a>
       </li>
+      <?php if (session()->get('role') == 0) : ?>
       <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Barang</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -20,12 +21,20 @@
           <a href="<?= site_url('barang/create'); ?>" class="dropdown-item">Tambah Barang</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('transaksi/index'); ?>">Transaksi </a>
+      </li>
+      <?php else: ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('etalase/index'); ?>">Etalase </a>
+      </li>
+      <?php endif; ?>
     </ul>
     <?php endif; ?>
     <div class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
         <?php if($session->get('isLoggedIn')) : ?>
-        <li class="nav-item">
+          <li class="nav-item">
             <a href="<?= site_url('auth/logout'); ?>" class="btn btn-success">Logout</a>
         </li>
         <?php else : ?>
