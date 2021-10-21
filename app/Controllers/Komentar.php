@@ -45,5 +45,15 @@ class Komentar extends BaseController {
         ]);
     }
     
+    public function delete()
+    {
+        $id = $this->request->uri->getSegment(3);
+        $id_barang = $this->request->uri->getSegment(4);
+        $komentarModel = new \App\Models\KomentarModel();
+        $delete = $komentarModel->delete($id);
+
+        return redirect()->to('etalase/beli/'.$id_barang);
+    }
+    
 }
 ?>

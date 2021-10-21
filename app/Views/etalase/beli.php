@@ -142,11 +142,20 @@
                             <?php 
                                 $modelUser = new \App\Models\UserModel();
                                 $namaUser = $modelUser->find($k->id_user)->username;
-                            ?>
-                            <strong><?= $namaUser; ?></strong>
-                            <br>
-                            <?= $k->komentar; ?>
-                            <hr>
+                                ?>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <strong><?= $namaUser; ?></strong>
+                                        <br>
+                                        <?= $k->komentar; ?>
+                                        <hr>
+                                    </td>
+                                    <td>
+                                        <a href="<?= site_url('Komentar/delete/'.$k->id.'/'.$model->id); ?>">&nbsp&nbsp&nbsp<i class="bi bi-trash-fill text-danger"></i></a>
+                                    </td>
+                                <tr>
+                            </table>
                         <?php endforeach ?>
                     </div>
                 </div>
